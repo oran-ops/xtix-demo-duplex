@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>XTIX Proposal — DupleX + Rooftop + Moon Club</title>
+<style>
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #fff;
+  font-size: 11pt;
+}
+
+/* ───── Each page is exactly A4 ───── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: avoid; }
+.page.dark { background: linear-gradient(135deg, #0a1410 0%, #19241e 60%, #0a1410 100%); color: #fff; }
+.page.cream { background: #f8f8f6; }
+.page-inner { padding: 18mm 16mm; height: 100%; }
+.page-inner.tight { padding: 14mm 16mm; }
+
+/* ───── COVER ───── */
+.cover {
+  padding: 24mm 22mm 22mm;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 75% 28%, rgba(252,185,0,0.20) 0%, transparent 55%),
+    linear-gradient(135deg, #0a1410 0%, #19241e 60%, #0a1410 100%);
+  color: #fff;
+  height: 297mm;
+}
+.cover::before {
+  content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 7mm;
+  background: linear-gradient(180deg, #fcb900 0%, #e0a000 100%);
+}
+.cover .corner-mark {
+  position: absolute; top: 12mm; right: 18mm;
+  font-size: 8pt; letter-spacing: 4px; opacity: 0.45;
+  text-transform: uppercase;
+}
+.cover .brand {
+  display: inline-block;
+  background: #fcb900; color: #000;
+  padding: 9px 18px; font-weight: 900;
+  letter-spacing: 5px; font-size: 14pt;
+}
+.cover .kicker {
+  font-size: 10pt; letter-spacing: 3px;
+  text-transform: uppercase; opacity: 0.7;
+  margin: 36mm 0 6mm;
+}
+.cover h1 {
+  font-size: 38pt; font-weight: 900;
+  line-height: 1.05; margin-bottom: 8mm;
+  letter-spacing: -0.5px;
+}
+.cover h1 .accent { color: #fcb900; }
+.cover .sub {
+  font-size: 13.5pt; opacity: 0.85; margin-bottom: 22mm;
+  font-weight: 300; max-width: 140mm; line-height: 1.45;
+}
+.cover .meta-box {
+  border-left: 3px solid #fcb900;
+  padding: 4mm 0 4mm 8mm;
+  position: absolute; bottom: 38mm; left: 22mm;
+  width: 130mm;
+}
+.cover .meta-box .row { display: flex; padding: 2.5mm 0; font-size: 10pt; }
+.cover .meta-box .row .lbl {
+  color: #fcb900; min-width: 32mm;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  font-size: 8.5pt; font-weight: 700;
+}
+.cover .meta-box .row .val { color: #fff; }
+.cover .footer-strip {
+  position: absolute; bottom: 14mm; left: 22mm; right: 30mm;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(252,185,0,0.25);
+  padding-top: 7mm;
+}
+.cover .footer-strip .url {
+  font-family: Consolas, monospace; font-size: 9pt; color: #fcb900;
+}
+.cover .footer-strip .tagline {
+  font-size: 8pt; letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.55;
+}
+
+/* ───── HEADINGS ───── */
+h2 {
+  font-size: 17pt; font-weight: 800;
+  color: #19241e;
+  margin: 0 0 4mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 2px solid #fcb900;
+  letter-spacing: -0.3px;
+}
+h2.dark-h { color: #fcb900; border-bottom-color: rgba(252,185,0,0.4); }
+h2 + .lead { margin-bottom: 5mm; }
+
+.lead { font-size: 11.5pt; color: #555; font-weight: 300; line-height: 1.5; }
+p { margin-bottom: 3mm; }
+
+/* ───── FEATURES ───── */
+.feature {
+  margin-bottom: 3.5mm; padding-left: 5mm;
+  border-left: 2px solid #fcb900;
+}
+.feature .ft { font-weight: 700; color: #19241e; font-size: 10.5pt; margin-bottom: 0.5mm; }
+.feature .fd { color: #444; font-size: 9.5pt; line-height: 1.5; }
+
+/* ───── PRICING ───── */
+table.pricing {
+  width: 100%; border-collapse: collapse; margin: 0 0 6mm;
+  font-size: 9.5pt;
+}
+table.pricing th, table.pricing td {
+  padding: 3mm 4mm; text-align: left; border-bottom: 1px solid #e5e5e5;
+}
+table.pricing th {
+  background: #19241e; color: #fff; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px; font-size: 8.5pt;
+}
+table.pricing td.cost { text-align: right; font-weight: 700; color: #19241e; }
+table.pricing td.cost.free { color: #c89500; }
+table.pricing tr:last-child td { border-bottom: none; }
+
+/* ───── CALLOUTS ───── */
+.callout {
+  background: linear-gradient(135deg, #fff8e1 0%, #fffaeb 100%);
+  border-left: 4px solid #fcb900;
+  padding: 5mm 6mm; margin: 4mm 0 0;
+  font-size: 10pt; color: #19241e;
+}
+.callout strong { color: #000; }
+.callout .url-label {
+  font-size: 8.5pt; text-transform: uppercase;
+  letter-spacing: 1.5px; color: #19241e;
+  margin-bottom: 2mm; display: block; font-weight: 700;
+}
+.callout .url-value {
+  font-family: Consolas, monospace; font-size: 12pt;
+  color: #19241e; font-weight: 700; word-break: break-all;
+  margin-top: 2mm;
+}
+
+/* ───── SCREENSHOTS ───── */
+.shot {
+  margin: 0; border-radius: 4px; overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.shot img { width: 100%; display: block; }
+.shot .caption {
+  background: #19241e; color: #fff;
+  padding: 3.5mm 5mm;
+  border-top: 2px solid #fcb900;
+}
+.shot .caption .title {
+  text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;
+  color: #fcb900; margin-bottom: 1mm; font-size: 9pt;
+}
+.shot .caption .desc {
+  color: rgba(255,255,255,0.85); font-size: 9pt; line-height: 1.45;
+}
+
+/* ───── FINAL PAGE ───── */
+.final .top-stripe {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 25mm;
+}
+.final .top-stripe .brand-pill {
+  background: #fcb900; color: #000;
+  padding: 6px 14px; font-weight: 900;
+  letter-spacing: 4px; font-size: 11pt;
+}
+.final .top-stripe .label {
+  font-size: 9pt; letter-spacing: 3px;
+  text-transform: uppercase; opacity: 0.6;
+}
+.final .big-url {
+  background: rgba(252,185,0,0.10);
+  border: 1px solid rgba(252,185,0,0.45);
+  border-radius: 4px;
+  padding: 9mm 10mm;
+  margin: 8mm 0 14mm;
+  text-align: center;
+}
+.final .big-url .lbl {
+  font-size: 9pt; letter-spacing: 3px;
+  text-transform: uppercase; color: #fcb900;
+  margin-bottom: 4mm; font-weight: 700;
+}
+.final .big-url .val {
+  font-family: Consolas, monospace;
+  font-size: 13pt; color: #fff;
+  font-weight: 700; word-break: break-all;
+}
+.final .contact-block {
+  border: 2px solid rgba(252,185,0,0.4);
+  padding: 8mm 10mm;
+}
+.final .contact-block .who {
+  font-size: 16pt; font-weight: 900;
+  color: #fcb900; margin-bottom: 1mm;
+}
+.final .contact-block .role {
+  font-size: 10pt; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+  margin-bottom: 5mm;
+}
+.final .contact-block .lines { font-size: 11pt; line-height: 1.95; }
+.final .contact-block .lines .l-lbl {
+  display: inline-block; width: 18mm;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase; font-size: 9pt; letter-spacing: 1.5px;
+}
+.final .contact-block .lines .l-val { color: #fff; font-weight: 600; }
+.final p { color: rgba(255,255,255,0.85); font-size: 11pt; }
+.final h2 { font-size: 22pt; }
+</style>
+</head>
+<body>
+
+<!-- =================== PAGE 1: COVER =================== -->
+<section class="page">
+  <div class="cover">
+    <div class="corner-mark">XTIX &middot; 2026</div>
+    <div class="brand">XTIX</div>
+    <div class="kicker">Ticketing platform proposal</div>
+    <h1>DupleX<br>The Rooftop Club<br><span class="accent">Moon Club</span></h1>
+    <div class="sub">A group-level ticketing, CRM and event-operations solution prepared for the three-venue Prague nightlife group.</div>
+    <div class="meta-box">
+      <div class="row"><div class="lbl">Prepared for</div><div class="val">Antonín Baťka, Director of Sales</div></div>
+      <div class="row"><div class="lbl">Venues</div><div class="val">DupleX &middot; Rooftop &middot; Moon Club Prague</div></div>
+      <div class="row"><div class="lbl">From</div><div class="val">Oran &middot; XTIX</div></div>
+      <div class="row"><div class="lbl">Contact</div><div class="val">oran@xtix.ai</div></div>
+    </div>
+    <div class="footer-strip">
+      <div class="url">oran-ops.github.io/xtix-demo-duplex</div>
+      <div class="tagline">Group CRM &middot; AI helper &middot; Live analytics</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAGE 2: WHAT XTIX DOES =================== -->
+<section class="page">
+  <div class="page-inner">
+    <h2>What XTIX does</h2>
+    <p class="lead">A summary of what XTIX puts in place for the three-venue group operation.</p>
+
+    <div class="feature"><div class="ft">One-screen embedded checkout on your sites</div><div class="fd">Tickets sold directly on duplex.cz, rooftopclub.cz and moonclub.cz &mdash; your branding, your event pages, every ticket type the group sells today (Standard, VIP, VIP Table, VIP Terrace, Bottle Service, Lounge) on a single screen.</div></div>
+
+    <div class="feature"><div class="ft">Multi-currency at checkout</div><div class="fd">A range of currencies the buyer can select at the moment of purchase &mdash; tailored to international tourist traffic.</div></div>
+
+    <div class="feature"><div class="ft">16+ languages selectable at checkout</div><div class="fd">The buyer reads the entire flow in their own language &mdash; covering every market that lands in Prague on a weekend.</div></div>
+
+    <div class="feature"><div class="ft">Apple Pay + Google Pay one-tap</div><div class="fd">The single biggest conversion lift on mobile, where most international ticket buyers actually buy.</div></div>
+
+    <div class="feature"><div class="ft">Master account with per-venue sub-accounts</div><div class="fd">DupleX, Rooftop and Moon teams each get their own access. You get one master view across all three &mdash; one back-office to run the group.</div></div>
+
+    <div class="feature"><div class="ft">Group-level CRM under that master account</div><div class="fd">Every guest tagged at the booking moment: country, language, VIP tier, table preference, bottle service history, theme-night preference, cross-venue visits, lifetime spend. The Friday-DupleX → Saturday-Rooftop → Sunday-Moon international tourist becomes <strong>one returning guest</strong> across all three venues.</div></div>
+
+    <div class="feature"><div class="ft">Free AI helper tool built in</div><div class="fd">Drafts marketing copy, ticket descriptions, event announcements and buyer messages in the group's voice, in any language you need.</div></div>
+
+    <div class="feature"><div class="ft">Pre-event campaigns to ticket buyers</div><div class="fd">Request through the system &mdash; our team sends the campaign from your name to every buyer of any specific event (lineup updates, dress code, table confirmations, last-call mailings).</div></div>
+
+    <div class="feature"><div class="ft">Full promo code engine</div><div class="fd">Straight promo codes, presale codes, member-brings-member referral codes &mdash; DupleX VIP regulars get the Rooftop priority code, the Friday Madness regular gets the Moon Full Moon presale, the influencer gets a tracked referral link.</div></div>
+
+    <div class="feature"><div class="ft">Customer service for ticket buyers handled by XTIX</div><div class="fd">Every ticket question, refund request, technical issue at checkout, lost-ticket reissue &mdash; comes through us, not your venues. <strong>Removes the full buyer-support workload from the team.</strong></div></div>
+
+    <div class="feature"><div class="ft">Ticket scanning + live event analytics</div><div class="fd">Every scan time-stamped, real-time arrival graph during the night, peak arrival windows by event type, late-arrival patterns by VIP tier, queue-management data &mdash; turns each night into actionable data.</div></div>
+  </div>
+</section>
+
+<!-- =================== PAGE 3: PRICING + VALUE =================== -->
+<section class="page">
+  <div class="page-inner">
+    <h2>Pricing</h2>
+    <table class="pricing">
+      <tr><th style="width:65%">Item</th><th style="text-align:right">Cost</th></tr>
+      <tr><td>Setup fee</td><td class="cost free">None</td></tr>
+      <tr><td>Monthly platform fee</td><td class="cost free">None</td></tr>
+      <tr><td>Buyer-side fee on tickets</td><td class="cost"><strong>7% flat</strong> &mdash; regardless of ticket price</td></tr>
+      <tr><td>Free events</td><td class="cost free">0%</td></tr>
+      <tr><td>Multi-language, Apple Pay + Google Pay</td><td class="cost free">Included</td></tr>
+      <tr><td>Master account + per-venue sub-accounts</td><td class="cost free">Included</td></tr>
+      <tr><td>Group-level CRM across all 3 venues</td><td class="cost free">Included</td></tr>
+      <tr><td>Free AI helper tool (content + messaging)</td><td class="cost free">Included</td></tr>
+      <tr><td>Pre-event campaigns to ticket buyers</td><td class="cost free">Included</td></tr>
+      <tr><td>Promo / presale / member-brings-member codes</td><td class="cost free">Included</td></tr>
+      <tr><td>Customer service for ticket buyers</td><td class="cost free">Included</td></tr>
+      <tr><td>Ticket scanning + live event analytics</td><td class="cost free">Included</td></tr>
+      <tr><td>Multi-currency at checkout</td><td class="cost">Subject to payment-processor fees</td></tr>
+    </table>
+
+    <h2 style="margin-top:8mm">Why this matters</h2>
+    <p style="font-size:10.5pt">Higher mobile conversion on every Oakenfold, Lost Frequencies, NERVO and ATB date &mdash; and on every weekend across all three venues.</p>
+    <p style="font-size:10.5pt">A real cross-venue customer record that turns the multi-night Prague tourist into a known returning guest in the group's own data.</p>
+    <p style="font-size:10.5pt">Free AI content help built in. Pre-event marketing campaigns handled for you. Live arrival analytics so every night becomes data you can act on. And the entire buyer-support workload moves off your team &mdash; XTIX handles every ticket question for every buyer.</p>
+
+    <div class="callout">
+      <span class="url-label">Live preview &mdash; click and try it now</span>
+      Open the URL below on any device to see the full XTIX checkout running on your own DupleX × Paul Oakenfold 24.7.2026 event page.
+      <div class="url-value">https://oran-ops.github.io/xtix-demo-duplex/</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAGE 4: VISUAL — FULL PAGE =================== -->
+<section class="page cream">
+  <div class="page-inner tight">
+    <h2>The Oakenfold page &mdash; with XTIX live</h2>
+    <p class="lead" style="margin-bottom:6mm">A working preview on the DupleX × Paul Oakenfold 24.7.2026 page &mdash; the strongest event to demonstrate, because it carries every ticket type the group sells.</p>
+
+    <div class="shot">
+      <img src="C1-page-top.png" alt="DupleX Oakenfold page header with hero image">
+      <div class="caption">
+        <div class="title">The Oakenfold event page on duplex.cz styling</div>
+        <div class="desc">Your hero, your DupleX brand, your event title, your menu &mdash; everything stays as it is on your live site. The XTIX checkout sits inline below, where the ticket flow today lives.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAGE 5: VISUAL — WIDGET CLOSE-UP =================== -->
+<section class="page cream">
+  <div class="page-inner tight">
+    <h2>XTIX checkout &mdash; close-up</h2>
+    <p class="lead" style="margin-bottom:6mm">The XTIX widget rendering live on your Oakenfold event &mdash; ticket types, prices, secure checkout and supported payment methods.</p>
+
+    <div class="shot">
+      <img src="C2-widget-area.png" alt="XTIX widget close-up showing ticket types and checkout">
+      <div class="caption">
+        <div class="title">Live XTIX checkout on your event</div>
+        <div class="desc">All ticket types in one screen, secure checkout via Apple Pay / Google Pay / Visa / Mastercard / Maestro / JCB. Customer Care line built in. 7% flat fee, no setup, no monthly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAGE 6: FINAL / CONTACT =================== -->
+<section class="page dark final">
+  <div class="page-inner" style="padding:30mm 22mm">
+    <div class="top-stripe">
+      <div class="brand-pill">XTIX</div>
+      <div class="label">Next step</div>
+    </div>
+    <h2 class="dark-h">Open the live preview</h2>
+    <p>The live preview is ready. Open the link below, click through the XTIX checkout on your own Oakenfold event, and let me know when you'd like a working session to set up the group account for DupleX, The Rooftop Club and Moon Club.</p>
+
+    <div class="big-url">
+      <div class="lbl">Live preview URL</div>
+      <div class="val">https://oran-ops.github.io/xtix-demo-duplex/</div>
+    </div>
+
+    <div class="contact-block">
+      <div class="who">Oran</div>
+      <div class="role">XTIX &middot; Ticketing &amp; group CRM platform</div>
+      <div class="lines">
+        <div><span class="l-lbl">E-mail</span><span class="l-val">oran@xtix.ai</span></div>
+        <div><span class="l-lbl">Web</span><span class="l-val">xtix.ai</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

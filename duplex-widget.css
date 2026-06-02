@@ -1,0 +1,97 @@
+/* =========================================================================
+   DupleX × XTIX widget — transparent embed on host site
+   Demo overrides for hub.xtix.ai widget inside the Oakenfold demo page
+   ========================================================================= */
+
+
+/* ===== Transparent / blend-with-host backgrounds ===== */
+
+/* Backdrop behind the card — fully transparent so the DupleX page shows through */
+body {
+  background: transparent !important;
+}
+
+/* Main widget card — transparent so the host event-page bg shows through */
+.e-popup,
+.e-popup__body {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Header and sidebar — subtle DupleX-dark tint with transparency, blends in */
+.e-popup__header_common,
+.e-popup__header_meta,
+.e-popup__sidebar {
+  background: rgba(25, 36, 30, 0.55) !important;
+}
+
+
+/* ===== DupleX brand accents (yellow CTA, dark text on light, light on dark) ===== */
+
+/* Primary purchase / reservation button — DupleX yellow */
+.btn_green,
+.btn_reservation {
+  background: linear-gradient(to bottom, #fcb900, #e0a000) !important;
+  color: #0a0a0a !important;
+  box-shadow: 0 2px 0 #b07d00 !important;
+}
+.btn_green:hover,
+.btn_reservation:hover {
+  background: linear-gradient(to bottom, #ffd040, #fcb900) !important;
+}
+
+/* Secondary button — neutral on dark */
+.btn_white {
+  background: rgba(255,255,255,0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.25) !important;
+}
+.btn_white:hover {
+  background: rgba(255,255,255,0.14) !important;
+}
+
+/* Links and link-style buttons in DupleX yellow */
+.link_blue,
+.btn_look-like-link {
+  color: #fcb900 !important;
+}
+.link_blue:hover,
+.btn_look-like-link:hover {
+  color: #ffd040 !important;
+}
+
+
+/* ===== Text recolor for dark/transparent background ===== */
+/* On a transparent backdrop that sits over the DupleX dark hero,
+   most text must be recolored to remain readable. */
+
+.content__wrapper,
+.ticket__title,
+.ticket__text,
+.ticket-type__title,
+.ticket-type__label,
+.ticket-type__description,
+.order-total__amount,
+.order-total__extra-info,
+.form__label,
+.payment__submit p,
+.payment__secure {
+  color: #f4f4f0 !important;
+}
+
+/* Price — DupleX yellow for emphasis */
+.ticket-price {
+  color: #fcb900 !important;
+  font-weight: 700 !important;
+}
+
+/* Order total amount — DupleX yellow, bold */
+.order-total__amount {
+  color: #fcb900 !important;
+}
+
+
+/* ===== Optional: corporate font alignment with DupleX ===== */
+.content__wrapper {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+}
