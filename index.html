@@ -505,22 +505,13 @@ body { overflow-x:hidden; }
                 </div>
                 <div class="clear"></div>
             
-<!-- ========== XTIX EMBEDDED CHECKOUT — direct iframe with style= param for CSS injection ========== -->
+<!-- ========== XTIX EMBEDDED CHECKOUT ========== -->
 <div class="single_event_content" style="margin-top:30px;padding:30px;background:rgba(0,0,0,0.6);border:1px solid rgba(252,185,0,0.5);border-radius:6px">
 <h2 style="color:#fcb900;text-transform:uppercase;letter-spacing:2px;font-size:22px;margin-bottom:20px">Purchase Tickets</h2>
-<iframe
-  src="https://hub.xtix.ai/v1/widgets/common?event=6a1d37da18635dcfa4741cf8&token=eyJhbGciOiJIUzI1NiIsImlzcyI6Imh1Yi54dGl4LmFpIiwidHlwIjoiSldUIn0.eyJwIjoiNjkzMTU1NTlmYTRjYTcwYjZlMWQ5YzNkIn0.2FFEWMJsmoUXs033lwzFTj2jt8CTyucWxlKzhwBrx6E&partner=69315559fa4ca70b6e1d9c3d&m=inline&lang=en&style=https%3A%2F%2Foran-ops.github.io%2Fxtix-demo-duplex%2Fduplex-widget.css"
-  class="tc-widget-inline"
-  width="100%"
-  height="1100"
-  frameborder="0"
-  scrolling="no"
-  allowtransparency="true"
-  style="background: transparent; border: none;"
-  allow="payment *"
-  allowpaymentrequest=""
-  name="tc-frame-6a1d37da18635dcfa4741cf8"></iframe>
+<span data-xtix-event-inline="6a1d37da18635dcfa4741cf8" data-xtix-lang="en" data-xtix-token="eyJhbGciOiJIUzI1NiIsImlzcyI6Imh1Yi54dGl4LmFpIiwidHlwIjoiSldUIn0.eyJwIjoiNjkzMTU1NTlmYTRjYTcwYjZlMWQ5YzNkIn0.2FFEWMJsmoUXs033lwzFTj2jt8CTyucWxlKzhwBrx6E"></span>
 </div>
+<script>window.xtix_url='https://hub.xtix.ai';</script>
+<script src="https://hub.xtix.ai/static/scripts/widget/xtixwidget.js"></script>
 <!-- ========== /XTIX EMBEDDED CHECKOUT ========== -->
 </article>
         
