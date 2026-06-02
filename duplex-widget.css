@@ -101,16 +101,41 @@ html {
   background: linear-gradient(to bottom, #ffd040, #fcb900) !important;
 }
 
-/* Secondary / quantity buttons (+/-) — DupleX accent border, light bg */
-.btn_low,
-.btn_size-r {
-  background: rgba(255,255,255,0.06) !important;
+/* Quantity counter buttons (+/-) — DupleX yellow icon on transparent dark */
+.input-counter,
+.input-counter_up,
+.input-counter_down {
+  background: rgba(255,255,255,0.05) !important;
   color: #fcb900 !important;
   border: 1px solid rgba(252,185,0,0.4) !important;
+  border-radius: 4px !important;
 }
-.btn_low:hover,
-.btn_size-r:hover {
-  background: rgba(252,185,0,0.15) !important;
+.input-counter:hover:not(:disabled),
+.input-counter_up:hover:not(:disabled),
+.input-counter_down:hover:not(:disabled) {
+  background: rgba(252,185,0,0.18) !important;
+  border-color: rgba(252,185,0,0.7) !important;
+}
+.input-counter_disabled,
+.input-counter:disabled {
+  background: rgba(255,255,255,0.03) !important;
+  color: rgba(252,185,0,0.35) !important;
+  border-color: rgba(252,185,0,0.15) !important;
+  cursor: not-allowed !important;
+}
+/* SVG icons inside +/- buttons inherit color */
+.input-counter svg,
+.input-counter_up svg,
+.input-counter_down svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+/* Number input/display between the +/- */
+.ticket__quantity,
+.ticket__quantity input {
+  background: transparent !important;
+  color: #f4f4f0 !important;
+  border-color: rgba(255,255,255,0.15) !important;
 }
 
 /* Links & link-style buttons */
