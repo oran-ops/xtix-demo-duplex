@@ -1,56 +1,119 @@
 /* =========================================================================
-   DupleX × XTIX widget — transparent embed on host site
-   Demo overrides for hub.xtix.ai widget inside the Oakenfold demo page
+   DupleX × XTIX widget — transparent embed
+   Targets the actual rendered class names from the live widget DOM
    ========================================================================= */
 
 
 /* ===== Transparent / blend-with-host backgrounds ===== */
 
-/* Backdrop behind the card — fully transparent so the DupleX page shows through */
-body {
+/* Body of the iframe — fully transparent */
+body,
+html {
   background: transparent !important;
 }
 
-/* Main widget card — transparent so the host event-page bg shows through */
+/* All main wrapper layers — transparent so the DupleX page bg shows through */
+.content__wrapper,
+.page,
+.page__wrapper,
+.common__body,
 .e-popup,
-.e-popup__body {
+.e-popup__body,
+.e-popup__body_common,
+.e-popup__footer,
+.e-popup__footer_wrap,
+.e-popup__footer_card-logo-box {
   background: transparent !important;
   box-shadow: none !important;
+  border-color: rgba(255,255,255,0.12) !important;
 }
 
-/* Header and sidebar — subtle DupleX-dark tint with transparency, blends in */
-.e-popup__header_common,
-.e-popup__header_meta,
-.e-popup__sidebar {
-  background: rgba(25, 36, 30, 0.55) !important;
+/* Event-details header box (currently light grey "VIP BENEFITS" panel)
+   — give it a subtle dark transparent overlay that blends with DupleX */
+.header__container,
+.header__event-description,
+.header__event-description-with-cover,
+.header__event-description-cover,
+.header__event-promo-info,
+.header__event-info-box,
+.header__switcher-box {
+  background: rgba(25,36,30,0.45) !important;
+  border-color: rgba(252,185,0,0.18) !important;
+}
+
+/* Ticket list rows — subtle transparent separation */
+.ticket-list,
+.ticket-list__list,
+.ticket-list__footer,
+.ticket-list__submit,
+.ticket-list__offer-link-box,
+.ticket__item,
+.ticket__item-row,
+.ticket__info,
+.ticket-no-scheme {
+  background: transparent !important;
+  border-color: rgba(255,255,255,0.10) !important;
 }
 
 
-/* ===== DupleX brand accents (yellow CTA, dark text on light, light on dark) ===== */
+/* ===== Text recolor for dark backdrop (white/light grey readable) ===== */
 
-/* Primary purchase / reservation button — DupleX yellow */
+.content__wrapper,
+.header__event-title,
+.header__event-description__datetime,
+.header__event-description__desc,
+.header__event-promo-info,
+.ticket__title,
+.ticket__text,
+.ticket__description,
+.ticket__info,
+.order-total,
+.form__label,
+.payment__submit p,
+.payment__secure {
+  color: #f4f4f0 !important;
+}
+
+/* Price emphasis — DupleX yellow */
+.ticket-price,
+.ticket__price,
+.ticket-price__flex,
+.order-total__amount {
+  color: #fcb900 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ===== Buttons in DupleX brand ===== */
+
+/* Primary purchase / checkout button — DupleX yellow */
 .btn_green,
-.btn_reservation {
+.btn_reservation,
+.ticket-list__submit-btn {
   background: linear-gradient(to bottom, #fcb900, #e0a000) !important;
   color: #0a0a0a !important;
   box-shadow: 0 2px 0 #b07d00 !important;
+  border-color: #e0a000 !important;
 }
 .btn_green:hover,
-.btn_reservation:hover {
+.btn_reservation:hover,
+.ticket-list__submit-btn:hover {
   background: linear-gradient(to bottom, #ffd040, #fcb900) !important;
 }
 
-/* Secondary button — neutral on dark */
-.btn_white {
-  background: rgba(255,255,255,0.08) !important;
-  color: #ffffff !important;
-  border-color: rgba(255,255,255,0.25) !important;
+/* Secondary / quantity buttons (+/-) — DupleX accent border, light bg */
+.btn_low,
+.btn_size-r {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fcb900 !important;
+  border: 1px solid rgba(252,185,0,0.4) !important;
 }
-.btn_white:hover {
-  background: rgba(255,255,255,0.14) !important;
+.btn_low:hover,
+.btn_size-r:hover {
+  background: rgba(252,185,0,0.15) !important;
 }
 
-/* Links and link-style buttons in DupleX yellow */
+/* Links & link-style buttons */
 .link_blue,
 .btn_look-like-link {
   color: #fcb900 !important;
@@ -61,37 +124,13 @@ body {
 }
 
 
-/* ===== Text recolor for dark/transparent background ===== */
-/* On a transparent backdrop that sits over the DupleX dark hero,
-   most text must be recolored to remain readable. */
-
-.content__wrapper,
-.ticket__title,
-.ticket__text,
-.ticket-type__title,
-.ticket-type__label,
-.ticket-type__description,
-.order-total__amount,
-.order-total__extra-info,
-.form__label,
-.payment__submit p,
-.payment__secure {
-  color: #f4f4f0 !important;
-}
-
-/* Price — DupleX yellow for emphasis */
-.ticket-price {
-  color: #fcb900 !important;
-  font-weight: 700 !important;
-}
-
-/* Order total amount — DupleX yellow, bold */
-.order-total__amount {
-  color: #fcb900 !important;
+/* ===== Footer card-logos area — subtle dark band ===== */
+.e-popup__footer_card-logo-box {
+  background: rgba(0,0,0,0.35) !important;
 }
 
 
-/* ===== Optional: corporate font alignment with DupleX ===== */
+/* ===== Typography alignment ===== */
 .content__wrapper {
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
 }
